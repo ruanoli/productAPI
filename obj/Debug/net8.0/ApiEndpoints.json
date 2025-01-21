@@ -1,0 +1,60 @@
+[
+  {
+    "ContainingType": "ProductAPI.Services.Controllers.ProductsController",
+    "Method": "Delete",
+    "RelativePath": "api/Products/DeleteProduct",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProductAPI.Services.Models.Product",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProductAPI.Services.Controllers.ProductsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Products/GetAllProduct",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProductAPI.Services.Controllers.ProductsController",
+    "Method": "Register",
+    "RelativePath": "api/Products/RegisterProduct",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProductAPI.Services.Models.Product",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProductAPI.Services.Controllers.ProductsController",
+    "Method": "Update",
+    "RelativePath": "api/Products/UpdateProduct",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ProductAPI.Services.Models.Product",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
