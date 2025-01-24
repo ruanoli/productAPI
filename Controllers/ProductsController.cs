@@ -10,7 +10,17 @@ namespace ProductAPI.Services.Controllers
     {
 
         [HttpGet("GetAllProduct")]
+        [ProducesResponseType(typeof(List<ProductGetModel>), 200)] 
         public IActionResult GetAll()
+        {
+            //TODO
+
+            return Ok(new List<ProductGetModel>());
+        }
+
+        [HttpGet("GetProductById/{productId}")]
+        [ProducesResponseType(typeof(ProductGetModel), 200)] 
+        public IActionResult GetById(Guid productId)
         {
             //TODO
 
@@ -18,27 +28,73 @@ namespace ProductAPI.Services.Controllers
         }
 
         [HttpPost("RegisterProduct")]
-        public IActionResult Register(ProductPostRequest model)
+        [ProducesResponseType(typeof(ProductResponseModel), 201)] 
+        [ProducesResponseType(typeof(ProductResponseModel), 500)] 
+        [ProducesResponseType(typeof(ProductResponseModel), 400)] 
+        public IActionResult Register(ProductPostRequestModel model)
         {
             //TODO
 
-            return Ok();
+            try
+            {
+                var response = new ProductResponseModel()
+                {
+                    StatusCode = 201,
+                    Message = "Produto Cadastrado",
+                    Product = new ProductGetModel()
+                };
+                
+                return StatusCode(201, response);
+            }
+            catch (Exception)
+            {
+                var response = new ProductResponseModel()
+                {
+                    StatusCode = 500,
+                    Message = "Erro Interno"
+                };
+
+                return StatusCode(500, response);
+            }
+
+
+
         }
 
         [HttpPut("UpdateProduct")]
-        public IActionResult Update(ProductPostRequest model)
+        [ProducesResponseType(typeof(ProductResponseModel), 200)] 
+        [ProducesResponseType(typeof(ProductResponseModel), 500)] 
+        [ProducesResponseType(typeof(ProductResponseModel), 400)] 
+        public IActionResult Update(ProductPostRequestModel model)
         {
             //TODO
 
-            return Ok();
+            var response = new ProductResponseModel()
+            {
+                StatusCode = 200,
+                Message = "Produto Atualizado com sucesso.",
+                Product = new ProductGetModel()
+            };
+
+            return StatusCode(200, response);
         }
 
-        [HttpDelete("DeleteProduct")]
-        public IActionResult Delete(ProductPostRequest model)
+        [HttpDelete("DeleteProduct/{productId}")]
+        [ProducesResponseType(typeof(ProductResponseModel), 200)] 
+        [ProducesResponseType(typeof(ProductResponseModel), 500)] 
+        [ProducesResponseType(typeof(ProductResponseModel), 400)] 
+        public IActionResult Delete(Guid productId)
         {
             //TODO
 
-            return Ok();
+            var response = new ProductResponseModel()
+            {
+                StatusCode = 200,
+                Message = "Produto Atualizado com sucesso.",
+                Product = new ProductGetModel()
+            };
+
+            return StatusCode(200, response);
         }
     }
 }
